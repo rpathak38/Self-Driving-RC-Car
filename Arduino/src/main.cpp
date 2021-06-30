@@ -23,6 +23,7 @@ void setup() {
   
   Serial.println("Welcome to Command Mode Driving");
   Serial.println("Type Engage to start");
+  Serial.println();
 }
 
 char buffer[50];
@@ -124,8 +125,17 @@ void loop() {
     }
 
     else if (strcasestr(buffer, "status")) {
-      Serial.println("DC MOTOR: " + motorSpeed);
-      Serial.println("SERVO MOTOR POSITION: " + servoPos);
+      char buffer[30];
+      sprintf(buffer, "SERVO MOTOR POSITION: %d", servoPos);
+      Serial.println(buffer);
+      sprintf(buffer, "DC MOTOR: %d", motorSpeed);
+      Serial.println(buffer);
+    }
+
+    else if (strcasestr(buffer, "reset")) {
+      motorSpeed = 0;
+      servoPos = 90;
+      Serial.println("System Returned to Default State");
     }
 
     // Garbage Statement case
