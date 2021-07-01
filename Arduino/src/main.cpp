@@ -79,6 +79,7 @@ void loop() {
         while (*current) {
           if (isdigit(*current)) {
             motorSpeed = strtol(current, &current, 10);
+            break;
           }
           current++;
         }
@@ -112,6 +113,7 @@ void loop() {
         while (*current) {
           if (isdigit(*current)) {
             servoPos = strtol(current, &current, 10);
+            break;
           }
           current++;
         }
@@ -125,11 +127,11 @@ void loop() {
     }
 
     else if (strcasestr(buffer, "status")) {
-      char buffer[30];
-      sprintf(buffer, "SERVO MOTOR POSITION: %d", servoPos);
-      Serial.println(buffer);
-      sprintf(buffer, "DC MOTOR: %d", motorSpeed);
-      Serial.println(buffer);
+      char temp[50];
+      sprintf(temp, "SERVO MOTOR POSITION: %d", servoPos);
+      Serial.println(temp);
+      sprintf(temp, "DC MOTOR: %d", motorSpeed);
+      Serial.println(temp);
     }
 
     else if (strcasestr(buffer, "reset")) {
