@@ -5,7 +5,7 @@
 #include <string.h>
 
 #define DC_PIN 3
-#define SERVO_PIN 5
+#define SERVO_PIN 11
 
 void setMotors(void); //set both servo and dc motors based on global variables
 Servo myServo;
