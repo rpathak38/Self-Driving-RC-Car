@@ -6,11 +6,11 @@ while cap.isOpened():
     retVal, frame = cap.read()
 
     if retVal:
-        cv2.imshow(frame)
+        cv2.imshow("frame", frame)
     else:
         break
 
-    if cv2.waitKey("q"):
+    if cv2.pollKey() == ord("q"):
         break
 
 cap.release()
