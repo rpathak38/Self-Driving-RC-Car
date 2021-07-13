@@ -4,6 +4,7 @@ cap = cv2.VideoCapture(0)
 
 while cap.isOpened():
     retVal, frame = cap.read()
+    frame = cv2.flip(frame, 0);
 
     if retVal:
         cv2.imshow("frame", frame)
