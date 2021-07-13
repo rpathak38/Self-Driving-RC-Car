@@ -10,7 +10,7 @@ while cap.isOpened():
     else:
         break
 
-    if cv2.pollKey() == ord("q"):
+    if cv2.waitKey(1) == ord("q"):
         break
 
 cap.release()
