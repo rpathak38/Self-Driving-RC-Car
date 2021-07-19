@@ -8,7 +8,8 @@ while cap.isOpened():
 
     if retVal:
         cv2.imshow("frame", frame)
-        cv2.imwrite("laneImage.jpg", frame)
+    else:
+        break
 
     if cv2.waitKey(1) == ord("q"):
         break
