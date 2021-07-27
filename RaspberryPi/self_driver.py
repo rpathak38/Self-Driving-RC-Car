@@ -72,17 +72,24 @@ def suggested_path(img, debug_mode=False):
     lane_angles = line_to_angle_sieve(possible_lanes)
     lane_unit_vectors = [(math.cos(i), math.sin(i)) for i in lane_angles]
     path_vector = (sum([x[0] for x in lane_unit_vectors]), sum(x[1] for x in lane_unit_vectors))
+
+    ret_angle = math.atan(path_vector[1] / path_vector[0])
+    if ret_angle < 0:
+        ret_angle += math.pi
+    ret_angle = ret_angle * 180 / math.pi
+
+    print(path_vector)
     path_vector = int(path_vector[0] * 80), int(path_vector[1] * 80)
     height = int(img.shape[0])
     width = int(img.shape[1])
     cv2.arrowedLine(img, (path_vector[0] + width // 2, path_vector[1] + height // 2),
                     (int(width // 2), int(height // 2)),
                     (0, 0, 255), thickness=16, tipLength=0.2)
-    return img
+    return img, int(ret_angle)
 
 
-image = cv2.imread("laneImage2.jpg")
-suggested_path(image, True)
+image = cv2.imread("laneImage.jpg")
+print(suggested_path(image, True)[1])
 cv2.imshow("image", image)
 cv2.waitKey()
 cv2.destroyAllWindows()
