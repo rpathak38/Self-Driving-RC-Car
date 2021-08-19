@@ -28,6 +28,5 @@ while cap.isOpened():
         serial_comm.serial_input_ping(serial_command="reset")
         break
 
-    time.sleep(0.2)
 cap.release()
 cv2.destroyAllWindows()
