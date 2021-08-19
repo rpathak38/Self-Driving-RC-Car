@@ -4,27 +4,6 @@ import threading
 from simple_term_menu import TerminalMenu
 import serial.tools.list_ports as port_list
 
-
-def serial_output(ser: serial.Serial):
-    while True:
-        while ser.inWaiting():
-            temp = ser.readline().replace('\r'.encode(), '\n'.encode())
-            print(temp.decode("utf-8")[:-2])
-
-
-def serial_input(ser: serial.Serial):
-    complete = False
-    serial_command = None
-    while True:
-        serial_command = input() + '\n'
-        ser.write(serial_command.encode())
-
-
-def serial_input_ping(ser: serial.Serial, serial_command: str):
-    serial_command = serial_command + "\n"
-    ser.write(serial_command.encode())
-
-
 print("Please select the correct Arduino device from the listed ports")
 ports = list(port_list.comports())
 ports_display = [str(p.name) + " / " + str(p.manufacturer) for p in ports]
@@ -39,6 +18,27 @@ print("Please select the mode in which you would like to operate")
 modes = ["Serial Communication", "Computer Vision"]
 terminal_menu = TerminalMenu(modes)
 mode_index = terminal_menu.show()
+
+
+def serial_output(ser: serial.Serial = arduino):
+    while True:
+        while ser.inWaiting():
+            temp = ser.readline().replace('\r'.encode(), '\n'.encode())
+            print(temp.decode("utf-8")[:-2])
+
+
+def serial_input(ser: serial.Serial = arduino):
+    complete = False
+    serial_command = None
+    while True:
+        serial_command = input() + '\n'
+        ser.write(serial_command.encode())
+
+
+def serial_input_ping(serial_command: str, ser: serial.Serial = arduino):
+    serial_command = serial_command + "\n"
+    ser.write(serial_command.encode())
+
 
 # pure serial communication case
 if mode_index == 0:
