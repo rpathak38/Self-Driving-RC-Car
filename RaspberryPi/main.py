@@ -11,7 +11,11 @@ while cap.isOpened():
 
     if retVal:
         serial_comm.serial_input_ping(serial_command="dc 255")
-        angle = self_driver.suggested_path(frame)[1]
+        try:
+            angle = self_driver.suggested_path(frame)[1]
+        except TypeError:
+            serial_comm.serial_input_ping(serial_command="reset")
+            break
         serial_comm.serial_input_ping(serial_command="servo " + str(angle) + "\n")
 
     else:
