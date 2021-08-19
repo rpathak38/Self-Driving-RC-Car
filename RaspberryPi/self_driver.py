@@ -2,6 +2,9 @@ import math
 import cv2
 import numpy as np
 
+fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+edge_output= cv2.VideoWriter("edges.mp4", fourcc, 20, (1280, 720))
+lanes_output = cv2.VideoWriter("lanes.mp4", fourcc, 20, (1280, 720))
 
 def region_of_interest(img, vertices=None):
     if vertices is None:
@@ -29,8 +32,8 @@ def auto_lines(img, debug_mode=False):
             x1, y1, x2, y2 = line[0]
             cv2.line(img, (x1, y1), (x2, y2), (255, 255, 255), 8)
 
-        cv2.imshow("edges", edges)
-        cv2.imshow("detected lines", img)
+        edge_output.write(edges)
+        lanes_output.write(img)
     return lines
 
 
