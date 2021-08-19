@@ -20,8 +20,9 @@ def region_of_interest(img, vertices=None):
 def auto_lines(img, debug_mode=False):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     edges = cv2.Canny(gray, 50, 150)
+
     edges = region_of_interest(edges)
-    lines = cv2.HoughLinesP(edges, rho=1, theta=math.pi / 180, threshold=100, minLineLength=150, maxLineGap=30)
+    lines = cv2.HoughLinesP(edges, rho=1, theta=math.pi / 180, threshold=100, minLineLength=50, maxLineGap=30)
 
     if debug_mode:
         for line in lines:
@@ -78,7 +79,8 @@ def suggested_path(img, debug_mode=False):
         ret_angle += math.pi
     ret_angle = ret_angle * 180 / math.pi
 
-    print(path_vector)
+    # print(path_vector)
+
     path_vector = int(path_vector[0] * 80), int(path_vector[1] * 80)
     height = int(img.shape[0])
     width = int(img.shape[1])
@@ -88,8 +90,9 @@ def suggested_path(img, debug_mode=False):
     return img, int(ret_angle)
 
 
-image = cv2.imread("laneImage.jpg")
-print(suggested_path(image, True)[1])
-cv2.imshow("image", image)
-cv2.waitKey()
-cv2.destroyAllWindows()
+if __name__ == "__main__":
+    image = cv2.imread("laneImage.jpg")
+    print(suggested_path(image, True)[1])
+    cv2.imshow("image", image)
+    cv2.waitKey()
+    cv2.destroyAllWindows()
