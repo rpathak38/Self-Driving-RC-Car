@@ -2,9 +2,10 @@ import math
 import cv2
 import numpy as np
 
-fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-edge_output= cv2.VideoWriter("edges.mp4", fourcc, 20, (1280, 720))
-lanes_output = cv2.VideoWriter("lanes.mp4", fourcc, 20, (1280, 720))
+fourcc = cv2.VideoWriter_fourcc('M', 'J', 'P', 'G')
+edge_output = cv2.VideoWriter("edges.avi", fourcc, 60, (640, 360))
+lanes_output = cv2.VideoWriter("lanes.avi", fourcc, 60, (640, 360))
+
 
 def region_of_interest(img, vertices=None):
     if vertices is None:
