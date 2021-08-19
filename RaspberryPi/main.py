@@ -13,7 +13,7 @@ while cap.isOpened():
         serial_comm.serial_input_ping(serial_command="dc 255")
         cv2.imshow("frame", frame)
         angle = self_driver.suggested_path(frame)[1]
-        serial_comm.serial_input_ping(serial_command="servo " + angle + "\n")
+        serial_comm.serial_input_ping(serial_command="servo " + str(angle) + "\n")
 
     else:
         serial_comm.serial_input_ping(serial_command="reset")
