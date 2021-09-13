@@ -34,6 +34,3 @@ To instead run in autonomous mode, simply run the ```main.py``` file like below.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/rpathak38/Simple_Lane_Detection/blob/master/LICENSE) file for details.
-
-## Acknowledgements
-[Programming Knowledge Team](https://www.youtube.com/user/ProgrammingKnowledge) -- I learned about Python and OpenCV through the tutorials provided in this youtube channel.
