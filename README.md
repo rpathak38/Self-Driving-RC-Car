@@ -1,14 +1,14 @@
-# READ ME UNFINISHED
 # Self-Driving-RC-Car
-A GitHub repository with all code and schematics necessary to create a self-driving RC car.
+A GitHub repository with all code and schematics necessary to create a self-driving RC car (classical CV).
 
 ![Demo](https://snipboard.io/bsSdV7.jpg)
 
 ## Getting Started
+All code and schematics required to construct the car can be found in this github repository. You will simply need an RC car with proportional steering abilities to begin the conversion to self-driving.
 
 ### Prerequisites
 In order to run the self driving car project, you will need an installation of Python along with the ability to upload C code to your Arduino. 
-The Arduino ide can be downloaded from Follow the commands below in your favorite shell to acquire the necessary packages.
+The Arduino ide can be downloaded from [here][https://www.arduino.cc/en/software]. Follow the commands below in your favorite shell to acquire the necessary packages.
 ```
 pip install opencv-python
 pip install numpy
