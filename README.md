@@ -33,4 +33,4 @@ To instead run in autonomous mode, simply run the ```main.py``` file like below.
 [Pyserial](https://github.com/pyserial/pyserial) -- Serial communication package for arduino/Pi communication
 
 ## Extra Images
-[Overhead view](https://snipboard.io/Ht8Ypj.jpg)
+![Overhead view](https://snipboard.io/Ht8Ypj.jpg)
