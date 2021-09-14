@@ -2,7 +2,7 @@
 # Self-Driving-RC-Car
 A GitHub repository with all code and schematics necessary to create a self-driving RC car.
 
-![Demo](https://media.giphy.com/media/kbuDItasGI6JbqUYmM/giphy.gif)
+![Demo](https://snipboard.io/bsSdV7.jpg)
 
 ## Getting Started
 
